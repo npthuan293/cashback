@@ -1,0 +1,15 @@
+/*!
+ * Custom CSS
+ */
+
+body .row{
+    padding-top: 50px;
+}
+
+#formUrl{
+	text-align: center;
+}
+
+#result {
+	display: none ;
+}

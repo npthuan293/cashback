@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'MainController@index');
-Route::post('/get-link', 'UrlController@getShortenUrl');
+Route::get('/get-link', 'UrlController@getShortenUrl');
 
-Route::post('/redirect', 'LoginController@redirect');
+Route::get('/redirect', 'LoginController@redirect');
 Route::get('/callback', 'LoginController@callback');

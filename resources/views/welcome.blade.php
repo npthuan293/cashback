@@ -1,22 +1,18 @@
 @include('layouts.header')
-	@if(Session::has('user'))) // Laravel 5 (Session('error')   
-		<div class="alert alert-danger">
-			{{ Session::get('user')}} // Laravel 5 {{Session('error')}} 
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+				{!! Form::open(['id' => 'formUrl']) !!}
+				<div class="form-group">
+					{!! Form::text('url', null,  ['id' => 'url','class' => 'form-control','placeholder' => 'Link mua hàng']) !!} <br />
+					{!! Form::button('Tạo link rút gọn', ['id' => 'btn_get_link','class' => 'btn btn-primary']) !!}
+				</div>
+				{!! Form::close() !!}
+				<div id='result'>
+					{!! Form::text('shorturl', null,  ['class' => 'form-control']) !!}
+				</div>
 		</div>
-	@else
-		<p>ABC</p>
-	@endif
-	{!! Form::open(['url' => '/redirect']) !!}
-		{!! Form::submit('Đăng nhập với Facebook')!!}
-		{!! Form::close() !!}
-		{!! Form::open(['url' => '/get-link']) !!}
-		{!! Form::label('url','Link mua hàng:') !!}
-		{!! Form::text('url') !!} <br />
-		{!! Form::submit('Tạo link rút gọn')!!}
-	{!! Form::close() !!}
-	@section('result')
-		@if(isset($id))
-			{{ $id }}
-		@endif
-	@show
+	</div>
+
+</div>
 @include('layouts.footer')

@@ -15,6 +15,7 @@
 	<link href = {{ asset("src/bootstrap/css/bootstrap.min.css") }} rel="stylesheet" />
 	<!-- Custom CSS -->
 	<link href = {{ asset("src/css/blog-home.css") }} rel="stylesheet" />
+	<link href = {{ asset("src/css/style.css") }} rel="stylesheet" />
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -24,22 +25,18 @@
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg bg-light fixed-top border">
 		<div class="container">
 			<a class="navbar-brand" href="#">Cashback</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			@if(Session::has('user')))
+			@if(Session::has('user'))
+
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Home
-							<span class="sr-only">(current)</span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">About</a>
+					<li class="nav-item ">
+						<a class="nav-link" href="#">{{ Session::get('user')->name }}</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Services</a>
@@ -53,7 +50,7 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="/redirect">Đăng nhập với Facebook
+						<a class="nav-link" href="{{ url()->current() }}/redirect">Đăng nhập với Facebook
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
